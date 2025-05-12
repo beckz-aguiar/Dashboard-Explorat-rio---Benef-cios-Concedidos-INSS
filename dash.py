@@ -157,10 +157,10 @@ else:
     st.subheader("Indicadores Chave do Período Filtrado")
     total_beneficios_kpi = base_inss_filtrada['QTD_BENEFICIOS'].sum()
     populacao_coberta_kpi = 0
-    if 'REGIAO_PAIS' in base_inss_filtrada.columns and 'POPULACAO' in base_inss_filtrada.columns:
-        populacao_df_sum = base_inss_filtrada.groupby('REGIAO_PAIS')['POPULACAO'].first()
-        populacao_coberta_kpi = populacao_df_sum.sum() if not populacao_df_sum.empty else 0
-        if pd.isna(populacao_coberta_kpi): populacao_coberta_kpi = 0
+if 'REGIAO_PAIS' in base_inss_filtrada.columns and 'POPULACAO' in base_inss_filtrada.columns:
+    populacao_df_sum = base_inss_filtrada.groupby('REGIAO_PAIS')['POPULACAO'].first()
+    populacao_coberta_kpi = populacao_df_sum.sum() if not populacao_df_sum.empty else 0
+    if pd.isna(populacao_coberta_kpi): populacao_coberta_kpi = 0
     
     taxa_geral_kpi = 0
     if populacao_coberta_kpi > 0 and pd.notna(populacao_coberta_kpi):
