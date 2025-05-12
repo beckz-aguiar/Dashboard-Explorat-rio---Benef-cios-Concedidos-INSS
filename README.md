@@ -6,7 +6,7 @@ O objetivo deste projeto é disponibilizar um dashboard interativo com dados dos
 
 # ▸ ʙᴀsᴇ ᴅᴇ ᴅᴀᴅᴏs
 
-As bases utilizadas estão disponíveis no site do governo, estão separadas por mês e os metadados também estão disponíveis no site. Para iniciar o tratamento, verifiquei se as bases possuem a mesma estrutura. 
+As bases utilizadas estão disponíveis no [site do governo](https://dados.gov.br/dados/conjuntos-dados/perfil-das-unidades-plano-de-dados-abertos-jun-2023-a-jun-2025), estão separadas por mês e os metadados também estão disponíveis no site. Para iniciar o tratamento, verifiquei se as bases possuem a mesma estrutura. 
 
 >➛ Caso for extraí-las diretamente do site, se atente ao fato de que algumas bases utilizam a primeira linha da tabela para título e nem sempre possuem as mesmas colunas e os arquivos presentes no repositório já estão com os devidos ajustes.
 
@@ -22,39 +22,41 @@ Após o download das bases, os arquivos foram salvos em excel na pasta bases_ins
 </p>
 
 
-    𝟙. ᴇxᴛʀᴀçᴀᴏ ᴇ ᴄᴏɴsᴏʟɪᴅᴀᴄᴀᴏ ᴅᴏs ᴅᴀᴅᴏs
+1. Extração e Consolidação dos Dados
 
-    𝟚. ʟɪᴍᴘᴇᴢᴀ ᴇ ᴘᴀᴅʀᴏɴɪᴢᴀçᴀᴏ ɪɴɪᴄɪᴀʟ
+2. Limpeza e Padronização Inicial
 
-    𝟛. ᴇɴɢᴇɴʜᴀʀɪᴀ ᴅᴇ ᴀᴛʀɪʙᴜᴛᴏs ᴇ ᴛʀᴀᴛᴀᴍᴇɴᴛᴏ ᴅᴇ ᴅᴀᴅᴏs ᴇsᴘᴇᴄɪғɪᴄᴏs
+3. Engenharia de Atributos e Tratamento de Dados Específicos
 
-    𝟜. ᴏᴛɪᴍɪᴢᴀᴄᴀᴏ ᴅᴀ ᴇsᴛʀᴜᴛᴜʀᴀ ᴅᴏs ᴅᴀᴅᴏs
+4. Otimização da Estrutura dos Dados
 
-    𝟝. ᴄʀɪᴀçᴀᴏ ᴅᴇ ɪɴᴅɪᴄᴀᴅᴏʀᴇs ᴇ ɴᴏᴠᴀs ᴄᴀᴛᴇɢᴏʀɪᴀs
+5. Criação de Indicadores e Novas Categorias
 
-    𝟞. ᴀɢʀᴇɢᴀçᴀᴏ ᴇ ɴᴏʀᴍᴀʟɪᴢᴀçᴀᴏ
+6. Agregação e Normalização dos Dados
 
-    𝟟. ᴇxᴘᴏʀᴛᴀçᴀᴏ ᴅᴏ ʀᴇsᴜʟᴛᴀᴅᴏ
+7. Exportação do Resultado
+
+>➛ Primeiro deve-se rodar o notebook para gerar o arquivo da base final e conseguir rodar o streamlit
 
 ---
 
 ## ▸ ᴄᴏᴍᴏ ᴏ ᴅᴀsʜʙᴏᴀʀᴅ ғᴏɪ ғᴇɪᴛᴏ?
 
-O Dashboard foi feito através do 𝑺𝒕𝒓𝒆𝒂𝒎𝒍𝒊𝒕 seguindo as etapas abaixo:
+O Dashboard foi feito através do *Streamlit* seguindo as etapas abaixo:
 
 <p align="left">
   <img src="imagens/3.png" alt="Resumo da Construção do Dashboard" style="width:45%;"/>
 </p>
 
-    𝟙. ᴄᴏɴғɪɢᴜʀᴀçᴀᴏ ɪɴɪᴄɪᴀʟ ᴇ ᴇsᴛɪʟᴏ ᴅᴀ ᴘᴀɢɪɴᴀ
+1. Configuração Inicial e Estilo da Página
 
-    𝟚. ᴄᴀʀʀᴇɢᴀᴍᴇɴᴛᴏ ᴇ ᴘʀᴇ-ᴘʀᴏᴄᴇssᴀᴍᴇɴᴛᴏ ᴅᴏs ᴅᴀᴅᴏs
+2. Carregamento e Pré-processamento dos Dados
 
-    𝟛. ᴄʀɪᴀçᴀᴏ ᴅᴇ ғɪʟᴛʀᴏs ɴᴀ ʙᴀʀʀᴀ ʟᴀᴛᴇʀᴀʟ (sɪᴅᴇʙᴀʀ)
+3. Criação de Filtros na Barra Lateral (sidebar)
 
-    𝟜. ᴀᴘʟɪᴄᴀçᴀᴏ ᴅᴏs ғɪʟᴛʀᴏs ᴀᴏs ᴅᴀᴅᴏs
+4. Aplicação dos Filtros aos Dados
 
-    𝟝. ᴇxɪʙɪçᴀᴏ ᴅᴇ ɪɴᴅɪᴄᴀᴅᴏʀᴇs ᴄʜᴀᴠᴇ (ᴋᴘɪs) ᴇ ɢʀᴀғɪᴄᴏs
+5. Exibição de Indicadores Chave (KPIs) e Gráficos
 
 ---
 
@@ -64,9 +66,9 @@ O Dashboard foi feito através do 𝑺𝒕𝒓𝒆𝒂𝒎𝒍𝒊𝒕 seguindo 
   <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGQ5Y283ODg2aG5jem9yMDFtOWJxZHZnZjR2MWU3eDU3djVubXN3OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OYzeSIbgJ12UeBy0RE/giphy.gif" alt="Demonstração do Projeto" style="width: 600px;"/>
 </p>
 
-Uma análise interessante que este dashboard possibilita é a nítida diferença entre gêneros ao se examinar categorias específicas de CID relacionadas à saúde mental e comportamental. 
+O dashboard evidencia importantes distinções de gênero em nossa sociedade quando se analisam os benefícios concedidos por diferentes categorias de CID. 
 
-Ao filtrar por "Transtornos mentais e comportamentais" no gráfico "Taxa por Mês e Sexo", a taxa de benefícios concedidos a mulheres é significativamente maior que a dos homens. Curiosamente, a situação se inverte ao selecionar a categoria "Traumatismos e envenenamentos", onde a taxa de benefícios para homens se mostra consideravelmente superior.
+No gráfico "Taxa por Mês e Sexo", ao aplicar o filtro para "Transtornos mentais e comportamentais", observa-se que a taxa de mulheres beneficiárias é substancialmente mais elevada em comparação aos homens. Em contrapartida, ao filtrar por "Traumatismos e envenenamentos", o padrão se inverte, revelando uma taxa de benefícios marcadamente maior para o público masculino.
 
 ### ❯ ᴄᴏɴᴛᴀᴛᴏs ᴅᴏ ᴀᴜᴛᴏʀ :
 
