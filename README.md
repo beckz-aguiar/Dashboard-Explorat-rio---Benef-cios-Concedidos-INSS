@@ -8,7 +8,7 @@ O objetivo deste projeto é disponibilizar um dashboard interativo com dados dos
 
 As bases utilizadas estão disponíveis no site do governo, estão separadas por mês e os metadados também estão disponíveis no site. Para iniciar o tratamento, verifiquei se as bases possuem a mesma estrutura. 
 
->➛ Caso for extraí-las diretamente do site, se atente ao fato de que algumas bases utilizam a primeira linha da tabela para título e nem sempre possuem as mesmas colunas.
+>➛ Caso for extraí-las diretamente do site, se atente ao fato de que algumas bases utilizam a primeira linha da tabela para título e nem sempre possuem as mesmas colunas e os arquivos presentes no repositório já estão com os devidos ajustes.
 
 ---
 
@@ -58,13 +58,17 @@ O Dashboard foi feito através do 𝑺𝒕𝒓𝒆𝒂𝒎𝒍𝒊𝒕 seguindo 
 
 ---
 
-## ▸ ᴅᴀsʜʙᴏᴀʀᴅs ᴇ ɪɴsɪɢʜᴛs
+## ▸ ᴅᴀsʜʙᴏᴀʀᴅ ᴇ ɪɴsɪɢʜᴛs
 
-<p align="left"> <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGQ5Y283ODg2aG5jem9yMDFtOWJxZHZnZjR2MWU3eDU3djVubXN3OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OYzeSIbgJ12UeBy0RE/giphy.gif" alt="Demonstração do Projeto" style="width: 35%;"/>
+<p align="left">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGQ5Y283ODg2aG5jem9yMDFtOWJxZHZnZjR2MWU3eDU3djVubXN3OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OYzeSIbgJ12UeBy0RE/giphy.gif" alt="Demonstração do Projeto" style="width: 600px;"/>
 </p>
 
+Uma análise interessante que este dashboard possibilita é a nítida diferença entre gêneros ao se examinar categorias específicas de CID relacionadas à saúde mental e comportamental. 
 
-### ❯ ᴄᴏɴᴛᴀᴛᴏs:
+Ao filtrar por "Transtornos mentais e comportamentais" no gráfico "Taxa por Mês e Sexo", a taxa de benefícios concedidos a mulheres é significativamente maior que a dos homens. Curiosamente, a situação se inverte ao selecionar a categoria "Traumatismos e envenenamentos", onde a taxa de benefícios para homens se mostra consideravelmente superior.
+
+### ❯ ᴄᴏɴᴛᴀᴛᴏs ᴅᴏ ᴀᴜᴛᴏʀ :
 
 <div>
 <a href="https://www.linkedin.com/in/beckzaguiar/" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
