@@ -1,6 +1,6 @@
 [theme]
-primaryColor="#7F00FF"      # Roxo vibrante (exemplo)
-backgroundColor="#FFFDF9"    # Fundo claro (exemplo)
-secondaryBackgroundColor="#F0F2F6" # Fundo da sidebar (exemplo)
-textColor="#31333F"         # Cor do texto principal (exemplo)
+primaryColor="#7F00FF"      # Roxo vibrante
+backgroundColor="#FFFDF9"    # Fundo claro
+secondaryBackgroundColor="#F0F2F6" # Fundo da sidebar
+textColor="#31333F"         # Cor do texto principal
 font="sans serif"            # Tipo de fonte base

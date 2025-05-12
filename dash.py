@@ -67,7 +67,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 st.title("Benefícios concedidos do INSS")
 
-caminho_base = r"E:\bases_de_dados\projeto_streamlit\base_final.csv"
+caminho_base = "output/base_final.csv"
 
 try:
     base_inss = pd.read_csv(caminho_base)
@@ -130,9 +130,9 @@ else:
     cids_selecionados = []
 
 try:
-    st.sidebar.image("beckz.png", use_container_width='stretch')
+    st.sidebar.image("imagens/beckz.png", use_container_width='stretch')
 except FileNotFoundError:
-    st.sidebar.warning("Arquivo da imagem 'beckz.png' não encontrado.")
+    st.sidebar.warning("Arquivo da imagem 'imagens/beckz.png' não encontrado.")
 except Exception as e:
     st.sidebar.error(f"Erro ao carregar a imagem: {e}")
 
