@@ -155,33 +155,98 @@ if base_inss_filtrada.empty:
 else:
     # BIG NUMBERS
     st.subheader("Indicadores Chave do Período Filtrado")
+
     total_beneficios_kpi = base_inss_filtrada['QTD_BENEFICIOS'].sum()
-    populacao_coberta_kpi = 0
-if 'REGIAO_PAIS' in base_inss_filtrada.columns and 'POPULACAO' in base_inss_filtrada.columns:
-    populacao_df_sum = base_inss_filtrada.groupby('REGIAO_PAIS')['POPULACAO'].first()
-    populacao_coberta_kpi = populacao_df_sum.sum() if not populacao_df_sum.empty else 0
-    if pd.isna(populacao_coberta_kpi): populacao_coberta_kpi = 0
-    
-    taxa_geral_kpi = 0
-    if populacao_coberta_kpi > 0 and pd.notna(populacao_coberta_kpi):
-        taxa_geral_kpi = (total_beneficios_kpi / populacao_coberta_kpi) * 100000
-    
-    meses_cobertos_kpi = 0
-    if 'MES_STR' in base_inss_filtrada.columns:
-        meses_cobertos_kpi = base_inss_filtrada['MES_STR'].nunique()
 
-    # Implementando o layout dos KPIs
-        kpi_col1, kpi_col2, kpi_col3, kpi_col4 = st.columns(4)
-    with kpi_col1:
-        st.metric(label="Total de Benefícios", value=f"{total_beneficios_kpi:,.0f}")
-    with kpi_col2:
-        st.metric(label="População Coberta", value=f"{populacao_coberta_kpi:,.0f}" if populacao_coberta_kpi > 0 else "N/D")
-    with kpi_col3:
-        st.metric(label="Taxa Geral (por 100k hab)", value=f"{taxa_geral_kpi:,.2f}" if taxa_geral_kpi > 0 else "N/D")
-    with kpi_col4:
-        st.metric(label="Meses no Filtro", value=f"{meses_cobertos_kpi}")
+    if 'REGIAO_PAIS' in base_inss_filtrada.columns and 'POPULACAO' in base_inss_filtrada.columns:
+        populacao_df_sum = base_inss_filtrada.groupby('REGIAO_PAIS')['POPULACAO'].first()
+        populacao_coberta_kpi = populacao_df_sum.sum() if not populacao_df_sum.empty else 0
+    else:
+        populacao_coberta_kpi = 0
+
+    if pd.isna(populacao_coberta_kpi):
+        populacao_coberta_kpi = 0
+
+    taxa_geral_kpi = (total_beneficios_kpi / populacao_coberta_kpi) * 100000 if populacao_coberta_kpi > 0 else 0
+    meses_cobertos_kpi = base_inss_filtrada['MES_STR'].nunique() if 'MES_STR' in base_inss_filtrada.columns else 0
+
+    # Visual
+    #kpi_col1, kpi_col2, kpi_col3, kpi_col4 = st.columns(4)
+    #with kpi_col1:
+        #st.metric(label="Total de Benefícios", value=f"{total_beneficios_kpi:,.0f}")
+    #with kpi_col2:
+        #st.metric(label="População Coberta", value=f"{populacao_coberta_kpi:,.0f}" if populacao_coberta_kpi > 0 else "N/D")
+    #with kpi_col3:
+        #st.metric(label="Taxa Geral (por 100K hab.)", value=f"{taxa_geral_kpi:,.2f}" if taxa_geral_kpi > 0 else "N/D")
+    #with kpi_col4:
+        #st.metric(label="Meses no Filtro", value=meses_cobertos_kpi)
+
+    # Layout com 4 colunas
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        fig1 = go.Figure(go.Indicator(
+            mode="number",
+            value=total_beneficios_kpi,
+            title={"text": "Total de Benefícios"},
+            number={"valueformat": ","}
+        ))
+        # Configurando os separadores no layout da figura
+        fig1.update_layout(
+            height=180,
+            margin=dict(t=30, b=0, l=0, r=0),
+            separators=',.'
+        )
+        st.plotly_chart(fig1, use_container_width=True)
+
+    with col2:
+        fig2 = go.Figure(go.Indicator(
+            mode="number",
+            value=populacao_coberta_kpi,
+            title={"text": "População Coberta"},
+            number={"valueformat": ","}
+        ))
+        # Configurando os separadores no layout da figura
+        fig2.update_layout(
+            height=180,
+            margin=dict(t=30, b=0, l=0, r=0),
+            separators=',.'
+        )
+        st.plotly_chart(fig2, use_container_width=True)
+
+    with col3:
+        fig3 = go.Figure(go.Indicator(
+            mode="number",
+            value=round(taxa_geral_kpi, 2),
+            title={"text": "Taxa Geral (por 100k hab.)"},
+            number={"valueformat": ",.2f"}
+        ))
+        # Configurando os separadores no layout da figura
+        fig3.update_layout(
+            height=180,
+            margin=dict(t=30, b=0, l=0, r=0),
+            separators=',.' # ',' para decimal, '.' para milhar
+        )
+        st.plotly_chart(fig3, use_container_width=True)
+
+    with col4:
+        fig4 = go.Figure(go.Indicator(
+            mode="number",
+            value=meses_cobertos_kpi,
+            title={"text": "Meses no Filtro"},
+            # ",d" formata como inteiro e habilita agrupamento de milhares.
+            number={"valueformat": ",d"}
+        ))
+        # Configurando os separadores no layout da figura
+        fig4.update_layout(
+            height=180,
+            margin=dict(t=30, b=0, l=0, r=0),
+            separators=',.'
+        )
+        st.plotly_chart(fig4, use_container_width=True)
+
     st.markdown("---")
-
+    
     # Definição das colunas
 
     col1_linha1, col2_linha1 = st.columns(2) # Gráfico de rosca dos benefícios por região / Gráfico de barras com o tipo do benefício
